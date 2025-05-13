@@ -1,13 +1,14 @@
 
-import { defineConfig } from 'tailwindcss';
+import { fontFamily } from "tailwindcss/defaultTheme";
+import type { Config } from "tailwindcss";
 
-export default defineConfig({
+const config: Config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
   theme: {
     container: {
@@ -19,8 +20,8 @@ export default defineConfig({
     },
     extend: {
       fontFamily: {
-        sans: ['Rubik', 'system-ui', 'sans-serif'],
-        heading: ['Montserrat', 'system-ui', 'sans-serif'],
+        sans: ["Rubik", "sans-serif"],
+        heading: ["Montserrat", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -60,11 +61,9 @@ export default defineConfig({
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
           border: "hsl(var(--sidebar-border))",
+          ring: "hsl(var(--sidebar-ring))",
           accent: "hsl(var(--sidebar-accent))",
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          ring: "hsl(var(--sidebar-ring))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
         },
       },
       borderRadius: {
@@ -74,12 +73,12 @@ export default defineConfig({
       },
       keyframes: {
         "accordion-down": {
-          from: { height: '0' },
+          from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: '0' },
+          to: { height: "0" },
         },
       },
       animation: {
@@ -89,4 +88,6 @@ export default defineConfig({
     },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
-});
+};
+
+export default config;
